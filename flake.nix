@@ -11,7 +11,14 @@
     flake-parts,
     ...
   }:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+    # FIXME: Can remove this part until `flake-parts`.
+    {
+      templates.default = {
+        description = "Go API Template with Gin";
+        path = ./.;
+      };
+    }
+    // flake-parts.lib.mkFlake {inherit inputs;} {
       systems = nixpkgs.lib.systems.flakeExposed;
 
       perSystem = {
