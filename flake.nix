@@ -11,7 +11,7 @@
     flake-parts,
     ...
   }:
-    # FIXME: Can remove this part until `flake-parts`.
+  # FIXME: Can remove this part until `flake-parts`.
     {
       templates.default = {
         description = "Go API Template with Gin";
@@ -29,6 +29,7 @@
         config,
         ...
       }: let
+        # FIXME: Change the project name, and version is you need a specific one instead of commit sha.
         name = "go-api";
         version = self'.rev or "dirty";
       in {
@@ -64,6 +65,7 @@
           buildInputs = [
             pkgs.go
             pkgs.golangci-lint
+            # FIXME: Add more tools if needed.
           ];
 
           # Run on each venv activation.
